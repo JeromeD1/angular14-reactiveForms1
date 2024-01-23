@@ -1,0 +1,61 @@
+<div>
+    <label>
+        Username : 
+        <input type="text" [formControl]="username">
+    </label>
+    <!-- <p>Username : {{username.value}} </p>
+
+    <button type="button" (click)="changeUserName()">Change to Schreck</button> -->
+
+</div>
+
+<div>
+    <label>
+        Email : 
+        <input type="text" [formControl]="email">
+    </label>
+</div>
+
+<div>
+    <label>
+        Password : 
+        <input type="password" [formControl]="password">
+    </label>
+</div>
+
+<div>
+    <label>
+        Street : 
+        <input type="text" [formControl]="street">
+    </label>
+</div>
+
+<div>
+    <label>
+        Postcode : 
+        <input type="text" [formControl]="postcode">
+    </label>
+</div>
+
+<div>
+    <label>
+        City : 
+        <input type="text" [formControl]="city">
+    </label>
+</div>
+
+<button type="submit" (click)="inscription()">Inscription</button>
+
+<section *ngIf="newUser">
+    <h1>User information</h1>
+    <p>{{newUser.username}} </p>
+    <p>{{newUser.email}} </p>
+    <p>{{newUser.password}} </p>
+    <p>{{newUser.street}} </p>
+    <p>{{newUser.postcode}} </p>
+    <p>{{newUser.city}} </p>
+
+</section>
+
+
+
