@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { User } from '../models/User.model';
+// import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+//pas besoin d'importer FormControl et FormGroup si on utilise FormBuilder
 
 @Component({
   selector: 'app-user-v2',
@@ -9,53 +10,24 @@ import { User } from '../models/User.model';
 })
 export class UserV2Component {
 
-  // username = new FormControl('');
-  // email = new FormControl('');
-  // password = new FormControl('');
-  // street = new FormControl('');
-  // postcode = new FormControl('');
-  // city = new FormControl('');
+  constructor(private fb: FormBuilder) {};
 
-  userForm = new FormGroup({
-    username: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    street: new FormControl(''),
-    postcode: new FormControl(''),
-    city: new FormControl('')
+  userForm = this.fb.group({
+    credentials: this.fb.group({
+      email:  [''],
+      password:  ['']
+    }),
+    username: [''],
+    street:  [''],
+    postcode:  [''],
+    city:  ['']
   })
 
-  // newUser: User = {
-  //   username:"",
-  //   email:"",
-  //   password:"",
-  //   street:"",
-  //   postcode:"",
-  //   city:""
-  // }
+  
 
-  newUser!:User;
-  // l’opérateur ! permet d'indiquer à TypeScript que vous êtes conscient que newUser peut être undefined, 
-  //et que vous le gérerez correctement.
-
-  // changeUserName() :void {
-  //   this.username.setValue('Schreck')
-  // }
-
-  inscription() :void {
-    // this.newUser = {
-    //   username:String(this.username.value),
-    //   email:String(this.email.value),
-    //   password:String(this.password.value),
-    //   street:String(this.street.value),
-    //   postcode:String(this.postcode.value),
-    //   city:String(this.city.value)
-
-    if(this.userForm.valid) {
-      this.newUser = this.userForm.value as User;
-    }
-
-    console.log(this.newUser);
-    }
+ onSubmit() :void {
+  console.log(this.userForm.value);
+  
+ }
 
 }

@@ -1,57 +1,54 @@
-<!-- 
-<div>
-    <label>
-        Username : 
-        <input type="text" [formControl]="userForm.username">
-    </label>
+<form [formGroup]="userForm" (ngSubmit)="userForm.valid && onSubmit()" >
+
+    <div>
+        <label>
+            Username : 
+            <input type="text" formControlName="username">
+        </label>
+        
     
-
-</div>
-
-<div>
-    <label>
-        Email : 
-        <input type="text" [formControl]="userForm.email">
-    </label>
-</div>
-
-<div>
-    <label>
-        Password : 
-        <input type="password" [formControl]="userForm.password">
-    </label>
-</div>
-
-<div>
-    <label>
-        Street : 
-        <input type="text" [formControl]="userForm.street">
-    </label>
-</div>
-
-<div>
-    <label>
-        Postcode : 
-        <input type="text" [formControl]="userForm.postcode">
-    </label>
-</div>
-
-<div>
-    <label>
-        City : 
-        <input type="text" [formControl]="userForm.city">
-    </label>
-</div>
-
-<button type="submit" (click)="inscription()">Inscription</button>
+    </div>
+    
+    <section formGroupName="credentials">
+        <div>
+            <label>
+                Email : 
+                <input type="text" formControlName="email" required>
+            </label>
+        </div>
+        
+        <div>
+            <label>
+                Password : 
+                <input type="password" formControlName="password" required>
+            </label>
+        </div>
+    </section>
+    
+    <div>
+        <label>
+            Street : 
+            <input type="text" formControlName="street">
+        </label>
+    </div>
+    
+    <div>
+        <label>
+            Postcode : 
+            <input type="text" formControlName="postcode">
+        </label>
+    </div>
+    
+    <div>
+        <label>
+            City : 
+            <input type="text" formControlName="city">
+        </label>
+    </div>
+    
+    <button type="submit" >Sign up</button>
+</form>
 
 <section>
-    <h1>User information</h1>
-    <p>{{newUser.username}} </p>
-    <p>{{newUser.email}} </p>
-    <p>{{newUser.password}} </p>
-    <p>{{newUser.street}} </p>
-    <p>{{newUser.postcode}} </p>
-    <p>{{newUser.city}} </p>
-
-</section> -->
+    
+</section>
